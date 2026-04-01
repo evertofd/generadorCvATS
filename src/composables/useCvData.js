@@ -27,12 +27,14 @@ export function useCvData() {
         id: 2,
         institution: '',
         degree: '',
-        period: ''
+        period: '',
+        description: ''
       }
     ],
     skills: [
       { id: 3, category: '', items: [] }
-    ]
+    ],
+    personalSkills: []
   })
 
   function addExperience() {
@@ -55,13 +57,23 @@ export function useCvData() {
       id: nextId++,
       institution: '',
       degree: '',
-      period: ''
+      period: '',
+      description: ''
     })
   }
 
   function removeEducation(id) {
     const idx = cvData.education.findIndex(e => e.id === id)
     if (idx !== -1) cvData.education.splice(idx, 1)
+  }
+
+  function addPersonalSkill(skill) {
+    const trimmed = skill.trim()
+    if (trimmed) cvData.personalSkills.push(trimmed)
+  }
+
+  function removePersonalSkill(index) {
+    cvData.personalSkills.splice(index, 1)
   }
 
   function addSkillCategory() {
@@ -80,6 +92,8 @@ export function useCvData() {
     addEducation,
     removeEducation,
     addSkillCategory,
-    removeSkillCategory
+    removeSkillCategory,
+    addPersonalSkill,
+    removePersonalSkill
   }
 }

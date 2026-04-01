@@ -38,6 +38,15 @@
         @remove-category="(id) => $emit('remove-skill-category', id)"
       />
     </div>
+
+    <!-- Habilidades Personales -->
+    <div class="mb-4">
+      <PersonalSkillsForm
+        :skills="cvData.personalSkills"
+        @add="(s) => $emit('add-personal-skill', s)"
+        @remove="(i) => $emit('remove-personal-skill', i)"
+      />
+    </div>
   </div>
 </template>
 
@@ -47,6 +56,7 @@ import SummaryForm from './form/SummaryForm.vue'
 import ExperienceForm from './form/ExperienceForm.vue'
 import EducationForm from './form/EducationForm.vue'
 import SkillsForm from './form/SkillsForm.vue'
+import PersonalSkillsForm from './form/PersonalSkillsForm.vue'
 
 defineProps({
   cvData: {
@@ -61,7 +71,9 @@ const emit = defineEmits([
   'add-education',
   'remove-education',
   'add-skill-category',
-  'remove-skill-category'
+  'remove-skill-category',
+  'add-personal-skill',
+  'remove-personal-skill'
 ])
 
 const addExperience = () => emit('add-experience')

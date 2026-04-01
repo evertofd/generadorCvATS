@@ -69,6 +69,12 @@
           <span class="cv-entry-org">{{ edu.institution }}</span>
         </div>
         <p v-if="edu.period" class="cv-entry-period">{{ edu.period }}</p>
+        <ul v-if="edu.description" class="cv-entry-desc">
+          <template v-for="(line, i) in parseDescription(edu.description)" :key="i">
+            <li v-if="line.type === 'bullet'" class="cv-bullet">{{ line.text }}</li>
+            <li v-else-if="line.type === 'text'" class="cv-text-line">{{ line.text }}</li>
+          </template>
+        </ul>
       </div>
     </div>
 
@@ -87,6 +93,14 @@
           </ul>
         </div>
       </div>
+    </div>
+
+    <!-- HABILIDADES PERSONALES -->
+    <div v-if="cvData.personalSkills.length > 0" class="cv-section">
+      <h2 class="cv-section-title">Habilidades Personales</h2>
+      <ul class="cv-skill-list">
+        <li v-for="(skill, i) in cvData.personalSkills" :key="i">{{ skill }}</li>
+      </ul>
     </div>
 
   </div>

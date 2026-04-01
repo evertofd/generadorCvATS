@@ -12,6 +12,8 @@
           @remove-education="removeEducation"
           @add-skill-category="addSkillCategory"
           @remove-skill-category="removeSkillCategory"
+          @add-personal-skill="addPersonalSkill"
+          @remove-personal-skill="removePersonalSkill"
         />
       </div>
     </aside>
@@ -56,7 +58,9 @@ const {
   addEducation,
   removeEducation,
   addSkillCategory,
-  removeSkillCategory
+  removeSkillCategory,
+  addPersonalSkill,
+  removePersonalSkill
 } = useCvData()
 
 const cvPreviewRef = ref(null)

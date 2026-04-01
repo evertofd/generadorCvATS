@@ -52,6 +52,19 @@
             @input="edu.period = $event.target.value"
           />
         </div>
+        <div class="col-12">
+          <label class="form-label small fw-semibold">
+            Descripción
+            <span class="text-muted fw-normal">(opcional — usa "-" para bullets)</span>
+          </label>
+          <textarea
+            class="form-control form-control-sm"
+            rows="3"
+            placeholder="- Mención académica&#10;- Proyecto de título: ..."
+            :value="edu.description"
+            @input="edu.description = $event.target.value"
+          ></textarea>
+        </div>
       </div>
     </div>
 
